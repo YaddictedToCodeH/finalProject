@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.finalp.dto.NoticeDTO;
+import kr.co.finalp.dto.NoticeStartEnd;
 
 @Repository
 public class NoticeOracleDAO implements NoticeDao {
@@ -21,8 +22,8 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public List<NoticeDTO> selectAll(int startNo, int endNo) {
-		// TODO Auto-generated method stub
-		return null;
+		NoticeStartEnd nse = new NoticeStartEnd(startNo, endNo);
+		return ss.selectList("kr.co.finalp.selectAll", nse);
 	}
 
 	@Override
@@ -50,8 +51,7 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public int getTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ss.selectOne("kr.co.finalp.getTotal");
 	}
 
 	@Override

@@ -9,4 +9,19 @@
  		FROM notice
  		WHERE noticeno =#{noticeno}
  	</select>
+ 	
+ 	<select id="selectAll" parameterType="nse" resultType="ndto">
+ 		SELECT noticeno, notice_title, notice_contents, notice_date, notice_hit
+ 		FROM ( SELECT ROWNUM rn, noticeno, notice_title, notice_contents, notice_date, notice_hit  
+ 			FROM( SELECT noticeno, notice_title, notice_contents, to_char(notice_date, 'YYYY/MM/DD') notice_date, notice_hit
+ 					FROM notice
+ 					ORDER BY noticeno desc )
+ 			WHERE ROWNUM &lt;=#{endNo} )
+ 		WHERE RN &gt;=#{startNo}
+ 	</select>
+ 	
+ 	<select id="getTotal" resultType="int">
+ 		SELECT COUNT(*) total
+ 		FROM notice
+ 	</select>
  </mapper>

@@ -14,7 +14,7 @@
 	}
 
     .container{
-        margin-top: 150px;
+        margin-top: 100px;
         width: 800px;
         height:1000px;
     }
@@ -38,8 +38,25 @@
       
     }
     
-    td {
+    
+    tr > td {
         padding: 30px;
+    }
+    
+    .pagebutton{
+    	display:flex;
+    	justify-content:center;
+    	margin-top:15px;
+    }
+    
+    .pageul, .pageul>li{
+     	list-style:none;
+     	float:left;
+    }
+    
+    .pageul>li>a{
+    	font-size:20px;
+    	padding:15px;
     }
 
 </style>
@@ -53,19 +70,28 @@
             <tr>
                 <th>번호</th>
                 <th>제목</th>
-                <th>작성자</th>
                 <th>작성일</th>
                 <th>조회수</th>
             </tr>
-                   
+             
+            <c:forEach var="dto" items="${notice }">      
             <tr>
                 <td>${dto.noticeno}</td>
                 <td>${dto.notice_title}</td>
-                <td>${dto.notice_contents}</td>
                 <td>${dto.notice_date}</td>
                 <td>${dto.notice_hit}</td>
             </tr>
+            </c:forEach>
+            
         </table>
+            
+           <div class="pagebutton">
+	            <ul class="pageul">
+					<c:forEach var="i" begin="${map.startPageNo }" end="${map.endPageNo }">
+							<li class="currentpage"><a class="page-link" href="notice?currentPage=${i}">${i}</a></li>
+					</c:forEach>
+	            </ul>
+           </div>
     </div>
 </body>
 </html>

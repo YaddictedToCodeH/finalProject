@@ -6,5 +6,6 @@
  <configuration>
  <typeAliases>
  	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
+ 	<typeAlias type="kr.co.finalp.dto.NoticeStartEnd" alias="nse"/>
  </typeAliases> 	
  </configuration>
