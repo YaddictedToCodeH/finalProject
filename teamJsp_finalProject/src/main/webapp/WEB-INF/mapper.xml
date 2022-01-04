@@ -2,3 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="kr.co.finalp">
+ 	<select id="selectOne" parameterType="int" resultType="ndto">
+ 		SELECT noticeno, notice_title, notice_contents, to_char(notice_date, 'YYYY/MM/DD HH24:MI') notice_date, notice_hit 
+ 		FROM notice
+ 		WHERE noticeno =#{noticeno}
+ 	</select>
+ </mapper>
