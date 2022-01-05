@@ -95,10 +95,9 @@ h1 {
 	padding: 50px;
 }
 .logostory{
-	height: 230px;
-	width: 250px;
+	height: 300px;
+	width: 400px;
 	text-align: left;
-	border: solid 1px black;
 }
 
 .history div{
@@ -110,10 +109,10 @@ h1 {
 .gamehistory p{
 	padding: 70px;
 	text-align: right;
-	font-size: 50px;
+	font-size: 40px;
 	margin: 0 auto;
-	font-weight: 800;
-	line-height: 90px;
+	font-weight: 1000;
+	line-height: 78px;
 }
 .gamelogohistory{
 	position: absolute;
@@ -122,7 +121,10 @@ h1 {
 	top: 1000px;
 	
 }
-/*  */
+.history p{
+	font-weight: 900;
+	font-size: 20px;
+}
 </style>
 </head>
 <body>
@@ -133,7 +135,7 @@ h1 {
 		</ul>
 
 		<div id="tab-1" class="tab-content current">
-			<img class="imglogo" src="../images/kt logo.jfif" />
+			<img class="imglogo" src="../resources/images/kt logo.png" />
 
 			<h1>신비롭고 강력한 힘, 상상의 농구 실현</h1>
 			<p>
@@ -163,23 +165,31 @@ h1 {
 				노하우로 그라운드 안팎에서 그 동안 없던 새로운 농구를 kt 소닉붐이 이루어 가겠습니다!<br>
 			</p>
 			<!-------------------------------------------------------------------------------------->
-			<img class="imgmem" src="../images/kt member.png">
+			<img class="imgmem" src="../resources/images/kt member.png">
 		</div>
 
 		<div id="tab-2" class="tab-content">
-			<div class="history">
-				<div>
-				<img class="logostory" src="../images/광주 나산 플라망스.gif"/>광주 나산 플라망스(1997년~2001년) 
-				<img class="logostory" src="../images/코리아텐더.png"/>부산 코리아텐더(2001년~2003년)
-				</div>
-				<div>
-				<img class="logostory" src="../images/KTF.png"/>부산 KTF 매직윙스 (2003년~2009년) 
-				<img class="logostory" src="../images/부산 kt.jpg"/>부산 kt 소닉붐(2009년~2021년)
-				</div>
-			</div>
-			
+				<table class="history" width="1400">
+					<tr>
+						<td><img class="logostory" src="../resources/images/광주 나산 플라망스.gif"/></td>
+						<td><img class="logostory" src="../resources/images/코리아텐더.png"/></td>
+					</tr>
+					<tr>
+						<td><p>&nbsp&nbsp&nbsp&nbsp&nbsp광주 나산 플라망스(1997년~2001년)</p></td>
+						<td><p>&nbsp&nbsp&nbsp&nbsp&nbsp부산 코리아텐더(2001년~2003년)</p></td>
+					</tr>
+					<tr>
+						<td><img class="logostory" src="../resources/images/KTF.png"/></td> 
+						<td><img class="logostory" src="../resources/images/부산 kt.jpg"/></td>		
+					</tr>	
+					<tr>
+						<td><p>&nbsp&nbsp&nbsp&nbsp&nbsp부산 KTF 매직윙스 (2003년~2009년)</p></td>
+						<td><p>&nbsp&nbsp&nbsp&nbsp&nbsp부산 kt 소닉붐(2009년~2021년)</p></td>	
+					</tr>
+				</table>
+							
 			<div class="gamehistory">
-				<img class="gamelogohistory" src="../images/kt logo.jfif"/>
+				<img class="gamelogohistory" src="../resources/images/kt logo.png"/>
 				<p>
 				역대 순위&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>
 				2009-10 시즌 준우승<br>
@@ -199,7 +209,6 @@ h1 {
 
 		</div>
 	</div>
-
 	</div>
 </body>
 </html>
