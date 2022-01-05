@@ -3,7 +3,7 @@ package kr.co.finalp.dto;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PageUtill {
+public class Gallery_PageUtill {
 	public static Map<String, Object> getPageData(int totalNumber, int countPerPage, int currentPage) {
 		Map<String, Object> map = new HashMap<String, Object>();
 

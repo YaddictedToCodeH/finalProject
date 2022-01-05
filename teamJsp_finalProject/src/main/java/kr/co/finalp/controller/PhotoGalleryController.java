@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.finalp.dao.GalleryDao;
-import kr.co.finalp.dto.PageUtill;
+import kr.co.finalp.dto.Gallery_PageUtill;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -35,7 +35,7 @@ public class PhotoGalleryController {
 		int countPerPage = 9;
 		
 		// 총 페이지 수
-		Map<String, Object> map = PageUtill.getPageData(totalNumber, countPerPage, currentPage);
+		Map<String, Object> map = Gallery_PageUtill.getPageData(totalNumber, countPerPage, currentPage);
 		
 		model.addAttribute("map", map);
 		
