@@ -3,9 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
- <configuration>
- <typeAliases>
- 	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
- 	<typeAlias type="kr.co.finalp.dto.NoticeStartEnd" alias="nse"/>
- </typeAliases> 	
- </configuration>
+
+  <configuration>
+  	<typeAliases>
+  		<typeAlias type="kr.co.finalp.dto.GalleryDTO" alias="gdto"/>
+  		<typeAlias type="kr.co.finalp.dto.StartEnd" alias="se"/>
+	 	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
+  	</typeAliases>
+  </configuration>
+

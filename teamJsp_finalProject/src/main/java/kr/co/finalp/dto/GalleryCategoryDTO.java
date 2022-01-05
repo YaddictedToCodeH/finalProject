@@ -5,9 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class NoticeStartEnd {
-	private int startNo;
-	private int endNo;
+@AllArgsConstructor
+public class GalleryCategoryDTO {
+	
+	private int gallery_category_no;
+	private String gallery_category;
+	
 }

@@ -31,6 +31,7 @@
 	<constructor-arg ref="factory"></constructor-arg>
 	</bean> 
 
+
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/views/" suffix=".jsp"/>
 	</mvc:view-resolvers>

@@ -6,47 +6,34 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.finalp.dto.NoticeDTO;
+import kr.co.finalp.dto.GalleryDTO;
 import kr.co.finalp.dto.StartEnd;
 
 @Repository
-public class NoticeOracleDAO implements NoticeDao {
-	
+public class GalleryOracleDAO implements GalleryDao {
+
 	@Autowired
 	private SqlSession ss;
-	
 	
 	public void setSs(SqlSession ss) {
 		this.ss = ss;
 	}
 
+	
+	
+	
 	@Override
-	public List<NoticeDTO> selectAll(int startNo, int endNo) {
+	public List<GalleryDTO> selectAll(int startNo, int endNo) {
+		System.out.println("SqlSession: " + ss);
+		
 		StartEnd se = new StartEnd(startNo, endNo);
 		return ss.selectList("kr.co.finalp.selectAll", se);
 	}
 
 	@Override
-	public void InsertOne(NoticeDTO dto) {
+	public GalleryDTO selectOne(int galleryno) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public NoticeDTO selectOne(int noticeno) {
-		return ss.selectOne("kr.co.finalp.selectOne", noticeno);
-	}
-
-	@Override
-	public void updateOne(NoticeDTO dto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteOne(int noticeno) {
-		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
@@ -55,9 +42,9 @@ public class NoticeOracleDAO implements NoticeDao {
 	}
 
 	@Override
-	public void raiseHits(int noticeno) {
+	public void hitsUp(int galleryno) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }
