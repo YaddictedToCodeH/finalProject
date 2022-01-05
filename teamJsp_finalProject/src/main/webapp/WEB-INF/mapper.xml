@@ -2,3 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="kr.co.finalp">
+  	<select id="selectAll" resultType="gdto" parameterType="se">
+  		SELECT galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
+  		FROM (SELECT ROWNUM rn, galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
+  			FROM (SELECT galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
+  					FROM gallery
+  					ORDER BY galleryno desc)
+  				WHERE ROWNUM &lt;=#{endNo})
+  			WHERE RN &gt;=#{startNo}  		
+  	</select>
+  	
+  	<select id="getTotal" resultType="int">
+  		SELECT count(*) total
+  		FROM gallery
+  	</select>
+  	
+  </mapper>
