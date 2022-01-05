@@ -28,8 +28,7 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public void InsertOne(NoticeDTO dto) {
-		// TODO Auto-generated method stub
-		
+		ss.insert("kr.co.finalp.notice_addOne", dto);
 	}
 
 	@Override
@@ -39,14 +38,13 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public void updateOne(NoticeDTO dto) {
-		// TODO Auto-generated method stub
+		ss.update("kr.co.finalp.notice_updateOne", dto);
 		
 	}
 
 	@Override
 	public void deleteOne(int noticeno) {
-		// TODO Auto-generated method stub
-		
+		ss.delete("kr.co.finalp.notice_deleteOne", noticeno);
 	}
 
 	@Override
@@ -56,8 +54,7 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public void raiseHits(int noticeno) {
-		// TODO Auto-generated method stub
-		
+		ss.update("kr.co.finalp.raiseHits", noticeno);	
 	}
 	
 }

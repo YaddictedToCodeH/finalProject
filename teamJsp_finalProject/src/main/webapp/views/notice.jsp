@@ -18,18 +18,18 @@
         <div class="title">공지사항</div>
         <table class="board">
             <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
+                <th class="nth">번호</th>
+                <th class="nth">제목</th>
+                <th class="nth">작성일</th>
+                <th class="nth">조회수</th>
             </tr>
              
             <c:forEach var="dto" items="${notice }">      
             <tr>
-                <td>${dto.noticeno}</td>
-                <td><a class="titletext" href="noticeDetail?noticeno=${dto.noticeno }">${dto.notice_title}</a></td>
-                <td>${dto.notice_date}</td>
-                <td>${dto.notice_hit}</td>
+                <td class="ntd">${dto.noticeno}</td>
+                <td class="ntd"><a class="titletext" href="noticeDetail?noticeno=${dto.noticeno }">${dto.notice_title}</a></td>
+                <td class="ntd">${dto.notice_date}</td>
+                <td class="ntd">${dto.notice_hit}</td>
             </tr>
             </c:forEach>
             

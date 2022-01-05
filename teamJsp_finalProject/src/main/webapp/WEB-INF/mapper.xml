@@ -40,5 +40,6 @@
  		SELECT COUNT(*) total
  		FROM notice
  	</select>
+ 		
  	
 </mapper>
