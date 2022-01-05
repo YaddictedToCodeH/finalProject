@@ -29,7 +29,8 @@
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="factory"></constructor-arg>
-	</bean>
+	</bean> 
+
 
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/views/" suffix=".jsp"/>
