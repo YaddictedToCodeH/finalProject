@@ -23,7 +23,7 @@ public class NoticeOracleDAO implements NoticeDao {
 	@Override
 	public List<NoticeDTO> selectAll(int startNo, int endNo) {
 		StartEnd se = new StartEnd(startNo, endNo);
-		return ss.selectList("kr.co.finalp.selectAll", se);
+		return ss.selectList("kr.co.finalp.notice_selectAll", se);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public NoticeDTO selectOne(int noticeno) {
-		return ss.selectOne("kr.co.finalp.selectOne", noticeno);
+		return ss.selectOne("kr.co.finalp.notice_selectOne", noticeno);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class NoticeOracleDAO implements NoticeDao {
 
 	@Override
 	public int getTotal() {
-		return ss.selectOne("kr.co.finalp.getTotal");
+		return ss.selectOne("kr.co.finalp.notice_getTotal");
 	}
 
 	@Override

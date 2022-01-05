@@ -24,12 +24,14 @@ public class NoticePageUtil {
 		int endPageNo = startPageNo + 10 >= totalPage? totalPage : startPageNo+10;
 		
 		// 이전
-		boolean prev = currentPage > 5 ? true:false;
+		boolean prev = currentPage > 1 ? true:false;
 		
 		//다음 
-		boolean next = currentPage+5 >= totalPage ? false:true;
+		boolean next = currentPage+1 >= totalPage ? false:true;
 		
 		// 맵 객체에 담기
+		
+		map.put("currentPage", currentPage);
 		map.put("totalPage", totalPage);
 		map.put("startNo", startNo);
 		map.put("endNo", endNo);

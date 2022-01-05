@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="../resources/css/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../resources/js/header.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
 
 
 <header id="header">
 	<div class="logo">
-		<a href="#"><img src="../resources/images/logo.png" alt="로고" class="logoimg"></a>
+		<a href="#"><img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="로고" class="logoimg"></a>
 	</div>
 	<nav class="mainnav">
 		<div class="headermenu">

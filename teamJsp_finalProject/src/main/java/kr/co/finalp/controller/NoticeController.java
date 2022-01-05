@@ -5,11 +5,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.finalp.dao.NoticeDao;
+import kr.co.finalp.dto.NoticeDTO;
 import kr.co.finalp.dto.NoticePageUtil;
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,6 +45,12 @@ public class NoticeController {
 		int endNo = (int) map.get("endNo");
 		
 		return new ModelAndView("notice","notice", dao.selectAll(startNo, endNo) );
+	}
+	
+	@GetMapping("/noticeDetail")
+	public ModelAndView noticeDetailForm(@RequestParam("noticeno")int noticeno) {
+		NoticeDTO dto = dao.selectOne(noticeno);
+		return new ModelAndView("noticeDetail", "dto", dto);
 	}
 		
 	
