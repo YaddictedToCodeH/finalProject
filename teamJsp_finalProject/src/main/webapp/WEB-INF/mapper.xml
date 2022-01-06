@@ -68,7 +68,7 @@
  	<update id="notice_raiseHits" parameterType="int">
  		UPDATE notice
  		SET hits = hits+1
- 		WHERE 
+ 		WHERE noticeno = #{noticeno}
  	</update>
  		
  	

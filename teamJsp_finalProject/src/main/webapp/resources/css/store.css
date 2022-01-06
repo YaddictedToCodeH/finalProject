@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+    *{
+    	margin: 0 auto;
+    	padding: 0;
+		text-decoration: none;
+		margin: 0px auto;
+    }
+
+    .container{ 
+        display: flex;
+        width: 1100px;
+        margin-left: 180px;
+        margin-top:20px;
+    }
+
+    .nlogo{
+       text-align: center;
+       height:400px;
+
+    }
+
+    .nlogo > div{
+        padding: 30px;
+       
+    }
+
+    .nlogo > img{
+        width: 250px;
+        height: 35px;
+    }
+    
+    body > div.container > div.nlogo > div.korea > a > img{
+         width: 180px;
+         height: 150px;
+    }
+    
+    body > div.container > div.player > div > img{
+    	width: 800px;
+    	height: 600px;
+    }

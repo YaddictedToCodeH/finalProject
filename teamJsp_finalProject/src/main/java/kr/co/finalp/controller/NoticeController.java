@@ -54,10 +54,18 @@ public class NoticeController {
 	
 	// 공지사항에서 클릭시 게시물 상세사항 
 	@GetMapping("/noticeDetail")
-	public ModelAndView noticeDetailForm(@RequestParam("noticeno")int noticeno) {
+	public ModelAndView noticeDetailForm(@RequestParam("noticeno")int noticeno, Model model) {
 		NoticeDTO dto = dao.selectOne(noticeno);
+		int totalNumber = dao.getTotal();
+		
+		Map<String, Object> map = NoticePageUtil.getTotal(totalNumber, noticeno);
+		
+		model.addAttribute("map", map);
+		
 		return new ModelAndView("noticeDetail", "dto", dto);
 	}
+	
+	
 	
 	// admin 로그인시 쓰기/수정/삭제 
 	

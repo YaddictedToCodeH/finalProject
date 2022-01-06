@@ -47,7 +47,7 @@
 							<li class="next"><a class="page-link" href="notice?currentPage=${map.currentPage+1}"> 다음 </a></li>
 						</c:if>
 	            </ul>
-           </div>
+           </div>         
     </div>
     
     <jsp:include page="footer.jsp"></jsp:include>

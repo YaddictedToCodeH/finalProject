@@ -26,13 +26,13 @@
     .datehits{
         padding: 10px;
         width: 980px;
-        border: 1px solid black;
+        border: 1px solid #c1c1c1;
         margin-top: 30px;
         height: 30px;
     }
 
     .news{
-        border: 1px solid black;
+        border: 1px solid #c1c1c1;
         width: 940px;  
         padding: 30px;
         padding-top:100px;

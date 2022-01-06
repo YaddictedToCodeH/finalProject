@@ -27,7 +27,7 @@ public class NoticePageUtil {
 		boolean prev = currentPage > 1 ? true:false;
 		
 		//다음 
-		boolean next = currentPage+1 >= totalPage ? false:true;
+		boolean next = currentPage+1 > endPageNo ? false:true;
 		
 		// 맵 객체에 담기
 		
@@ -37,6 +37,19 @@ public class NoticePageUtil {
 		map.put("endNo", endNo);
 		map.put("startPageNo", startPageNo);
 		map.put("endPageNo", endPageNo);
+		map.put("prev", prev);
+		map.put("next", next);
+		
+		return map;
+	}
+	
+	public static Map<String, Object> getTotal(int totalNumber,int noticeno){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		boolean prev = noticeno > 1 ? true:false;
+		boolean next = noticeno+1 > totalNumber ? false : true;
+		
+		map.put("totalNumber", totalNumber);
 		map.put("prev", prev);
 		map.put("next", next);
 		

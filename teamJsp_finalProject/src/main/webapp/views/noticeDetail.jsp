@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +23,17 @@
                 ${dto.notice_contents}
             </div>
             <div class="buttons">
+            
+            <c:if test="${map.prev}">
                 <span class="prev"><a href="/teamJsp_finalProject/noticeDetail?noticeno=${dto.noticeno-1 }">이전글</a></span>
+             </c:if>
+              
                 <span class="home"><a href="/teamJsp_finalProject/notice">목록</a></span>
+             
+             <c:if test="${map.next}">
                 <span class="next"><a href="/teamJsp_finalProject/noticeDetail?noticeno=${dto.noticeno+1 }">다음글</a></span>
+           	 </c:if>
+            
             </div>
             
         </div>
