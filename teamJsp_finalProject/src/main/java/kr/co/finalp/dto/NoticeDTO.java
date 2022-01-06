@@ -14,6 +14,4 @@ public class NoticeDTO {
 	private String notice_contents;
 	private String notice_date;
 	private int notice_hit;
-	private String ip;
-	private int status;
 }

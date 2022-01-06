@@ -69,9 +69,7 @@ public class NoticeController {
 	
 	// 쓰기 등록 
 	@PostMapping("/notice/write")
-	public String insert(@ModelAttribute("dto")NoticeDTO dto,
-			HttpServletRequest req) {
-		dto.setIp(req.getRemoteAddr());
+	public String insert(@ModelAttribute("dto")NoticeDTO dto) {
 		dao.InsertOne(dto);
 		return "redirect:/notice";
 	}
@@ -85,9 +83,7 @@ public class NoticeController {
 	
 	// 수정하기 등록
 	@PostMapping("/notice/modify")
-	public String update(@ModelAttribute("dto") NoticeDTO dto, 
-			HttpServletRequest req) {
-		dto.setIp(req.getRemoteAddr());
+	public String update(@ModelAttribute("dto") NoticeDTO dto) {
 		dao.updateOne(dto);
 		return "redirect:/notice";
 	}

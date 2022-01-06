@@ -29,23 +29,33 @@
 
     .board{
         border-collapse: collapse;
-        width: 1000px;
-        height: 800px;
+        width: 800px;
         text-align: center;
-        margin-left:100px;
+        border-radius: 10px;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px #c1c1c1;
     }
 
-    .nth{
-        border-top : 2px solid red;
-        border-bottom : 2px solid red;
+    .board > tr, td ,th{
+        border: 1px solid #c1c1c1;
+    }
+
+    .nth {
+        background-color: red;
+        color: white;
     }
     
-    .ntd{
-    	border-bottom: 2px solid #c1c1c1;	
+    .board > tbody > tr:nth-child(1) > th:nth-child(1)  {
+        border-radius: 10px 0px 0 0;
     }
-    
-    tr:nth-child(11) > td {
-    	border-bottom: 2px solid red;	
+
+    .board > tbody > tr:nth-child(1) > th:nth-child(5) {
+        border-radius: 0 10px 0 0;
+    }
+	
+    .board> tbody> tr:nth-child(even){
+        background-color: black;
+        color: white;
     }
     
       
@@ -84,6 +94,5 @@
     .pageul>li>a:hover{
     	background-color: red;
     	 color:white;
-    	
     }
     
