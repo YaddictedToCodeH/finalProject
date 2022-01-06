@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>스토어</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css" />
 </head>
 <body>

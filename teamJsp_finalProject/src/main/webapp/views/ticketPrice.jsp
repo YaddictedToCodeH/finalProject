@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>티켓 가격</title>
 </head>
 <style>
     *{
@@ -19,6 +19,7 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .title{
@@ -53,7 +54,8 @@
 
     .notice{
         margin-top: 30px;
-        width:610px;
+        margin-bottom: 30px;
+        width:610px; 
     }
 
     .noticetitle{
@@ -63,12 +65,14 @@
 
 </style>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
+
 	<div class="container">
         <div class="title"><h1>티켓가격</h1></div>
         
         <div class="seat">
             <div class="seating">좌석배치도</div>
-            <div class="seatimg"><img src="../images/kt_ticket.png" alt=""></div>
+            <div class="seatimg"><img src="../resources/images/kt_ticket.png" alt=""></div>
         </div>
 
         <div class="price">
@@ -123,5 +127,7 @@
             </div>
         </div>
     </div>
+    
+     <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
