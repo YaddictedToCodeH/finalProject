@@ -6,80 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-</head>
-<style>
-	*{
-		padding:0;
-		margin: 0px auto;
-	}
-
-    .container{
-        margin-top: 100px;
-        width: 800px;
-        height:1000px;
-    }
-
-    .title{
-        display: inline-block;
-        border: 1px solid black;
-        padding: 15px;
-        margin-bottom: 15px;
-        font-size: 30px;
-    }
-
-    .board{
-        border-collapse: collapse;
-        width: 800px;
-        text-align: center;
-    }
-
-    .board > tr , th,  td {
-        border: 1px solid black;
-      
-    }
-    
-    
-    tr > td {
-        padding: 30px;
-    }
-    
-    .pagebutton{
-    	display:flex;
-    	justify-content:center;
-    	margin-top:15px;
-    }
-    
-    .pageul, .pageul>li{
-     	list-style:none;
-     	float:left;
-    }
-    
-    .pageul>li>a{
-    	font-size:20px;
-    	padding:15px;
-    }
-
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice.css" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-
 </script>
+</head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
+
     <div class="container">
         <div class="title">공지사항</div>
         <table class="board">
             <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
+                <th class="nth">번호</th>
+                <th class="nth">제목</th>
+                <th class="nth">작성일</th>
+                <th class="nth">조회수</th>
             </tr>
              
             <c:forEach var="dto" items="${notice }">      
             <tr>
-                <td>${dto.noticeno}</td>
-                <td>${dto.notice_title}</td>
-                <td>${dto.notice_date}</td>
-                <td>${dto.notice_hit}</td>
+                <td class="ntd">${dto.noticeno}</td>
+                <td class="ntd"><a class="titletext" href="noticeDetail?noticeno=${dto.noticeno }">${dto.notice_title}</a></td>
+                <td class="ntd">${dto.notice_date}</td>
+                <td class="ntd">${dto.notice_hit}</td>
             </tr>
             </c:forEach>
             
@@ -87,11 +37,19 @@
             
            <div class="pagebutton">
 	            <ul class="pageul">
+	            	<c:if test="${map.prev}">
+							<li class="prev"><a class="page-link" href="notice?currentPage=${map.currentPage-1}"> 이전 </a></li>
+						</c:if>
 					<c:forEach var="i" begin="${map.startPageNo }" end="${map.endPageNo }">
 							<li class="currentpage"><a class="page-link" href="notice?currentPage=${i}">${i}</a></li>
 					</c:forEach>
+					<c:if test="${map.next}">
+							<li class="next"><a class="page-link" href="notice?currentPage=${map.currentPage+1}"> 다음 </a></li>
+						</c:if>
 	            </ul>
-           </div>
+           </div>         
     </div>
+    
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
