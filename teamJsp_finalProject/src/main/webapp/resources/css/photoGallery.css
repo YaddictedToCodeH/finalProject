@@ -1,20 +1,33 @@
 @charset "UTF-8";
 
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
 #container {
-	margin: auto;
-	margin-top: 200px;
-	background: yellowgreen;
+	margin: 0 auto;
 	width: 1200px;
 }
 
 #menu {
+	width: 100%;
+	height: 105px;
 	text-align: center;
+	background-color: #111;
 	color: white;
+	margin-top: 120px;
+	border-radius: 10px;
+}
+
+#menu>h1 {
+	margin-bottom: 30px;
 }
 
 #menu>span>a {
 	margin-right: 15px;
-	text-decoration: none;
 	font-size: 18px;
 	color: white;
 }
@@ -28,7 +41,7 @@
 	margin-right: 15px;
 }
 
-select {
+#selectBox>form>select {
 	width: 100px;
 	padding: .4em .6em;
 	border: 1px solid #999;
@@ -41,7 +54,15 @@ select {
 	margin-top: 50px;
 }
 
-img {
+#selectBox > form > input[type='submit'] {
+	width: 55px;
+	height: 28px;
+	border-radius: 5px;
+	background-color: black;
+	color:white;
+}
+
+.contents>div>img {
 	width: 300px;
 	height: 200px;
 }
@@ -49,7 +70,7 @@ img {
 .photoZone {
 	width: 300px;
 	height: 300px;
-	background: white;
+	background: #d3d3d3;
 	border-radius: 10px;
 	padding: 25px 25px;
 	margin: 0 24px;
@@ -58,7 +79,6 @@ img {
 }
 
 .photoZone>a {
-	text-decoration: none;
 	color: black;
 }
 
@@ -86,7 +106,7 @@ img {
 	text-align: center;
 }
 
-.title {
+.contents > div> .title {
 	display: block;
 	font-size: 16px;
 	font-weight: bold;
@@ -96,7 +116,7 @@ img {
 	white-space: nowrap;
 }
 
-.date {
+.contents> div> .date {
 	display: block;
 	font-size: 14px;
 	margin-top: 20px;
@@ -105,7 +125,7 @@ img {
 .paging {
 	text-align: center;
 	margin-top: 60px;
-	padding-bottom: 20px;
+	padding-bottom: 70px;
 }
 
 .paging>ul>li {
@@ -114,14 +134,14 @@ img {
 
 .paging>ul>li>a {
 	display: inline-block;
-	text-decoration: none;
 	font-size: 15px;
 	padding: 5px 14px;
 	color: white;
-	border: 1px solid black;
+	border: 1px solid white;
 	background-color: black;
 }
 
 .paging>ul>li>a:hover {
 	color: #ec0a0b;
 }
+

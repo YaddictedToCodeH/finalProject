@@ -7,6 +7,9 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="kr.co.finalp.dto.GalleryDTO" alias="gdto"/>
+  		<typeAlias type="kr.co.finalp.dto.GalleryStartEnd" alias="gallStartEnd"/>
+  		
+  		
   		<typeAlias type="kr.co.finalp.dto.StartEnd" alias="se"/>
 	 	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
   	</typeAliases>
