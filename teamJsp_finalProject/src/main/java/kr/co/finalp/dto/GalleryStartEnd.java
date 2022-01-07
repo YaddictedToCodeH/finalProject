@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GalleryCategoryDTO {
+public class GalleryStartEnd {
+	private int galleryCategoryNo;
+	private int startNo;
+	private int endNo;
 	
-	private int gallery_category_no;
-	private String gallery_category;
-	
+	private String sort_order;
 }

@@ -5,20 +5,89 @@
   
 
   <mapper namespace="kr.co.finalp">
-  	<select id="gallery_selectAll" resultType="gdto" parameterType="se">
-  		SELECT galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
-  		FROM (SELECT ROWNUM rn, galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
-  			FROM (SELECT galleryno, gallery_category_no, admin_no, gallery_title, gallery_date, gallery_hit
-  					FROM gallery
-  					ORDER BY galleryno desc)
-  				WHERE ROWNUM &lt;=#{endNo})
-  			WHERE RN &gt;=#{startNo}  		
+  	<select id="photoGallery_selectAll" parameterType="gallStartEnd" resultType="gdto">	
+		SELECT t2.*
+		   FROM (
+		      SELECT ROWNUM AS rnum
+		          , t1.*
+		         FROM (
+		            SELECT c1.gallery_category_no 								-- 갤러리 카테고리 번호         
+		               , c1.gallery_category 									-- 갤러리 카테고리
+		               , c2.galleryno 											-- 갤러리 번호 
+		               , c2.admin_no  											-- 관리자 번호 
+		               , c2.gallery_title 										-- 갤러리 제목
+		               , to_char(c2.gallery_date,'yyyy-mm-dd') as gallery_date  -- 갤러리 작성일
+		               , c2.gallery_hit 										-- 갤러리 조회수
+		               , c3.fileno 												-- 첨부파일 
+		               , c3.file_url 											-- 첨부파일 URL
+		               FROM gallery_category c1
+		               LEFT JOIN gallery c2
+		               ON ( c2.gallery_category_no = c1.gallery_category_no )
+		               LEFT JOIN files c3
+		               ON ( c3.galleryno = c2.galleryno )
+		               WHERE 1=1
+		               AND c1.gallery_category_no = #{galleryCategoryNo}
+		               <choose>		
+		               	<when test="sort_order != null and sort_order != '' and sort_order.equals('latest_order')">
+			               ORDER BY c2.galleryno desc
+		               	</when>	                      
+		               	<when test="sort_order != null and sort_order != '' and sort_order.equals('old_order')">
+			               ORDER BY c2.galleryno asc
+		               	</when>
+		               	<otherwise>
+		             	   ORDER BY c2.galleryno desc
+		               	</otherwise>
+		               </choose>
+		         ) t1
+	             WHERE ROWNUM &lt; = #{endNo}		            
+		    ) t2
+		    WHERE #{startNo} &lt; = rnum
+		    ORDER BY rnum    
   	</select>
   	
-  	<select id="gallery_getTotal" resultType="int">
-  		SELECT count(*) total
-  		FROM gallery
+  	<select id="photoGallery_getTotal" parameterType="gallStartEnd" resultType="int">
+  		SELECT COUNT(*) total
+            FROM gallery_category c1
+            LEFT JOIN gallery c2
+            ON ( c2.gallery_category_no = c1.gallery_category_no )
+            LEFT JOIN files c3
+            ON ( c3.galleryno = c2.galleryno )
+            WHERE c1.gallery_category_no = #{galleryCategoryNo}
   	</select>
+  	
+  	<select id="photoGallery_selectOne" resultType="gdto" parameterType="int">
+  		SELECT t2.*
+		   FROM (
+		      SELECT ROWNUM AS rnum
+		          , t1.*
+		         FROM (
+		            SELECT c1.gallery_category_no 								-- 갤러리 카테고리 번호         
+		               , c1.gallery_category 									-- 갤러리 카테고리
+		               , c2.galleryno 											-- 갤러리 번호 
+		               , c2.admin_no  											-- 관리자 번호 
+		               , c2.gallery_title 										-- 갤러리 제목
+		               , to_char(c2.gallery_date,'yyyy-mm-dd') as gallery_date  -- 갤러리 작성일
+		               , c2.gallery_hit 										-- 갤러리 조회수
+		               , c3.fileno 												-- 첨부파일 
+		               , c3.file_url 											-- 첨부파일 URL
+		               FROM gallery_category c1
+		               LEFT JOIN gallery c2
+		               ON ( c2.gallery_category_no = c1.gallery_category_no )
+		               LEFT JOIN files c3
+		               ON ( c3.galleryno = c2.galleryno )
+		         ) t1
+		            WHERE galleryno = #{galleryno}
+		    ) t2 
+  	</select>
+  	
+  	<update id="gallery_hits" parameterType="int">
+  		UPDATE gallery
+  		SET gallery_hit = gallery_hit+1
+  		WHERE galleryno = #{galleryno}
+  	</update>
+  	
+  	
+  	
   	
   	<select id="notice_selectOne" parameterType="int" resultType="ndto">
  		SELECT noticeno, notice_title, notice_contents, to_char(notice_date, 'YYYY/MM/DD HH24:MI') notice_date, notice_hit 

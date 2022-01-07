@@ -12,5 +12,6 @@ public class StartEnd {
 	// 시작번호 끝번호 전달용
 	private int startNo;
 	private int endNo;
+	
 
 }
