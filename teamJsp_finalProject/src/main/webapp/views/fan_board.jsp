@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팬게시판</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fan_board.css" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+</script>
+</head>
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+
+    <div class="container">
+        <div class="title"><h1>팬게시판</h1></div>
+
+            <div class="sortdiv">
+                <form action="">
+                    <select name="sortbox" id="sort">
+                        <option value="latest">최신순</option>
+                        <option value="old">오래된순</option>
+                        <option value="latest">좋아요순</option>
+                    </select>
+                    <input type="hidden" name="">
+                    <input type="submit" value="조회">
+                </form>
+            </div>
+
+                <table class="board">              
+                    <tr>
+                        <th class="fth">번호</th>
+                        <th class="fth">제목</th>
+                        <th class="fth">작성자</th>
+	                    <th class="fth">작성일</th>
+	                    <th class="fth">조회수</th>
+	                    <th class="fth">좋아요</th>
+	                </tr>
+	                
+	                <c:forEach var="dto" items="${fan_board }">
+	                <tr>
+	                    <td class="ftd">${dto.fanno }</td>
+	                    <td class="ftd"><a class="titletext" href="fan_boardDetail?fanno=${dto.fanno }">${dto.fan_title }</a></td>
+	                    <td class="ftd">${dto.id } </td>
+	                    <td class="ftd">${dto.fan_date } </td>
+	                    <td class="ftd">${dto.fan_hit } </td>
+	                    <td class="ftd">${dto.fan_hit } </td>
+	                </tr>
+	                </c:forEach>
+            	</table>
+
+                <div class="search">
+
+                    <div class="searchsort">
+                        <select name="searchsort" id="searchsort">
+                            <option value="title">제목</option>
+                            <option value="writer">작성자</option>
+                            <option value="contents">내용</option>
+                        </select>
+                    </div>
+                    <div class="searchinput"><input type="text"></div>
+                    <div class="searchbutton">검색</div>
+
+                <div class="write"><a href="">글쓰기</a></div>
+            </div>
+
+            <div class=pagebutton>
+                <ul class="pageul">
+                    <li><a href="">이전</a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">다음</a></li>
+                </ul>
+            </div>
+            
+    </div>
+    
+    <jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>

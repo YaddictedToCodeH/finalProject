@@ -139,6 +139,17 @@
  		SET hits = hits+1
  		WHERE noticeno = #{noticeno}
  	</update>
+ 	
+ 	<!-- 팬게시판 전체 -->
+ 	<select id="fan_board_selectAll" parameterType="se" resultType="fbdto">
+ 		SELECT fanno, fan_title, id, fan_date, fan_hit, fan_hit 
+ 		FROM ( SELECT ROWNUM rn, fanno, fan_title, id, fan_date, fan_hit, fan_hit ft
+ 			FROM( SELECT fanno, fan_title, id, to_char(fan_date, 'YYYY/MM/DD') fan_date, fan_hit , fan_hit ft
+ 					FROM fan_board
+ 					ORDER BY fanno desc )
+ 			WHERE ROWNUM &lt;=#{endNo} )
+ 		WHERE RN &gt;=#{startNo}
+ 	</select>
  		
  	
 </mapper>
