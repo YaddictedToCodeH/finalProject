@@ -62,6 +62,9 @@ public class NoticeController {
 		
 		model.addAttribute("map", map);
 		
+		// 조회수 증가
+		dao.raiseHits(noticeno);
+		
 		return new ModelAndView("noticeDetail", "dto", dto);
 	}
 	

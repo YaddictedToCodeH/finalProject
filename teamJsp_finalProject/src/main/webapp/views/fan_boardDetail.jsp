@@ -12,18 +12,18 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<div class="container">
-	        <div class="title">객관적인 이번시즌 KT 농구선수 활약 등급 알려준다 필독
+	        <div class="title">${dto.fan_title}
 	        </div>
 	      
 	        <div class="contents">
 	            <div class="datehits">
-	                <span>작성자  YJ542	</span> |
-	                <span>작성일  2020-08-06 15:10:55</span> |
-	                <span>조회 293</span> |
+	                <span>작성자  ${dto.id}	</span> |
+	                <span>작성일  ${dto.fan_date}</span> |
+	                <span>조회 ${dto.fan_hit}</span> |
 	                <span>좋아요 0</span>
 	            </div>
-	            <div class="news">
-	                허훈이 낳냐 허웅이 낳냐?
+	            <div class="fcontents">
+	                ${dto.fan_contents}
 	            </div>
 	
 	            <div class="like">
@@ -34,9 +34,9 @@
 	            </div>
 	
 	            <div class="buttons">
-	                <span class="prev">목록</span>
-	                <span class="home">수정</span>
-	                <span class="next">삭제</span>
+	                <span class="list"><a href="fan_board">목록</a></span>
+	                <span class="modify"><a href="fan_boardModify?fanno=${dto.fanno }">수정</a></span>
+	                <span class="delete"><a href="fan_boardDelete?fanno=${dto.fanno }">삭제</a></span>
 	            </div>
 	            
 	        </div>

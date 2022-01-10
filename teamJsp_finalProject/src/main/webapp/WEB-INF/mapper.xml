@@ -150,6 +150,36 @@
  			WHERE ROWNUM &lt;=#{endNo} )
  		WHERE RN &gt;=#{startNo}
  	</select>
+ 	
+ 	<!-- 팬게시판 게시물 하나 선택  -->
+  	<select id="fan_board_selectOne" parameterType="int" resultType="fbdto">
+ 		SELECT fanno, fan_title, id, to_char(fan_date, 'YYYY/MM/DD') fan_date, fan_contents, fan_hit 
+ 		FROM fan_board
+ 		WHERE fanno =#{fanno}
+ 	</select>
+ 	
+ 	<!-- 팬게시판 게시물 작성  -->
+ 	<insert id="fan_board_addOne" parameterType="fbdto">
+ 		INSERT INTO fan_board
+ 		VALUES (fan_board_fanno_seq.nextval, #{id}, #{fan_title}, sysdate, #{fan_contents} , 0 )
+ 	</insert>
+ 	
+ 	<update id="fan_board_updateOne" parameterType="fbdto">
+ 		UPDATE fan_board
+ 		SET fan_title = #{fan_title}, id= #{id}, fan_contents = #{fan_contents}
+ 		WHERE fanno = #{fanno}
+ 	</update>
+ 	
+ 	<delete id="fan_board_deleteOne" parameterType="int">
+ 		DELETE FROM fan_board
+ 		WHERE fanno = #{fanno}
+ 	</delete>
+ 	
+ 	<select id="fan_board_getTotal" resultType="int">
+  		SELECT COUNT(*) total
+  		FROM fan_board
+  	</select>
+ 	
  		
  	
 </mapper>

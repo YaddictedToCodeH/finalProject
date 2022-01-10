@@ -50,29 +50,35 @@
 	                </tr>
 	                </c:forEach>
             	</table>
-
-                <div class="search">
-
-                    <div class="searchsort">
-                        <select name="searchsort" id="searchsort">
-                            <option value="title">제목</option>
-                            <option value="writer">작성자</option>
-                            <option value="contents">내용</option>
-                        </select>
-                    </div>
-                    <div class="searchinput"><input type="text"></div>
-                    <div class="searchbutton">검색</div>
-
-                <div class="write"><a href="">글쓰기</a></div>
-            </div>
+				
+				<form action="">
+	                <div class="search">
+	                    <div class="searchsort">
+		                        <select name="searchsort" id="searchsort">
+		                            <option value="title">제목</option>
+		                            <option value="writer">작성자</option>
+		                            <option value="contents">내용</option>
+		                        </select>
+	                    </div>
+	                    
+	                    <div class="searchinput"><input type="text"></div>
+	                    <button class="searchbutton">검색</button>
+	
+	                	<div class="write"><a href="fan_boardWrite">글쓰기</a></div>
+	            	</div>
+				</form>
 
             <div class=pagebutton>
                 <ul class="pageul">
-                    <li><a href="">이전</a></li>
-                    <li><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">다음</a></li>
+                    <c:if test="${map.prev}">
+							<li class="prev"><a class="page-link" href="fan_board?currentPage=${map.currentPage-1}"> 이전 </a></li>
+						</c:if>
+					<c:forEach var="i" begin="${map.startPageNo }" end="${map.endPageNo }">
+							<li class="currentpage"><a class="page-link" href="fan_board?currentPage=${i}">${i}</a></li>
+					</c:forEach>
+					<c:if test="${map.next}">
+							<li class="next"><a class="page-link" href="fan_board?currentPage=${map.currentPage+1}"> 다음 </a></li>
+						</c:if>
                 </ul>
             </div>
             

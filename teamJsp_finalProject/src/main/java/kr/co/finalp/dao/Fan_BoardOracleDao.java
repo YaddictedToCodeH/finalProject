@@ -27,32 +27,30 @@ public class Fan_BoardOracleDao implements Fan_BoardDao {
 
 	@Override
 	public void InsertOne(Fan_BoardDTO dto) {
-		// TODO Auto-generated method stub
-		
+		ss.insert("kr.co.finalp.fan_board_addOne", dto);
+
 	}
 
 	@Override
 	public Fan_BoardDTO selectOne(int fanno) {
-		// TODO Auto-generated method stub
-		return null;
+		return ss.selectOne("kr.co.finalp.fan_board_selectOne", fanno);
 	}
 
 	@Override
 	public void updateOne(Fan_BoardDTO dto) {
-		// TODO Auto-generated method stub
+		ss.update("kr.co.finalp.fan_board_updateOne", dto);
 		
 	}
 
 	@Override
 	public void deleteOne(int fanno) {
-		// TODO Auto-generated method stub
+		ss.delete("kr.co.finalp.fan_board_deleteOne", fanno);
 		
 	}
 
 	@Override
 	public int getTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ss.selectOne("kr.co.finalp.fan_board_getTotal");
 	}
 
 	@Override

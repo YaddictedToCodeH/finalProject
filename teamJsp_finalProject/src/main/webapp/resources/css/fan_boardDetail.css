@@ -23,7 +23,7 @@
         
     }
     
-    .contnets{
+    .contents{
     	width:100%
     }
 
@@ -36,12 +36,11 @@
         text-align: end;
     }
 
-    .news{
+    .fcontents{
         border: 1px solid #c1c1c1;
         width: 940px;  
         padding: 30px;
         padding-top:100px;
-
     }
 
     .like{
