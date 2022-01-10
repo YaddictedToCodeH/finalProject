@@ -16,5 +16,5 @@ public class RankDTO {
 	private int win;
 	private int lose;
 	private float winRate;
-	
+	private int gameCount;
 }

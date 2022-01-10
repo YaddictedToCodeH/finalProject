@@ -32,12 +32,12 @@ public class RankOracleDao implements RankDao{
 
 	@Override
 	public List<PlayerRankDTO> rebRank() {
-		return null;
+		return ss.selectList("kr.co.finalp.rebRank_selectAll");
 	}
 
 	@Override
 	public List<PlayerRankDTO> astRank() {
-		return null;
+		return ss.selectList("kr.co.finalp.astRank_selectAll");
 	}
 
 }

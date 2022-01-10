@@ -23,11 +23,15 @@ public class RankController {
 		
 		
 		List<RankDTO> list = dao.rankSelectAll();
-		List<PlayerRankDTO> list2 = dao.ptsRank();
+		List<PlayerRankDTO> pst_list = dao.ptsRank();
+		List<PlayerRankDTO> reb_list = dao.rebRank();
+		List<PlayerRankDTO> ast_list = dao.astRank();
 
 		
 		model.addAttribute("list", list);
-		model.addAttribute("list2", list2);
+		model.addAttribute("pst_list", pst_list);
+		model.addAttribute("reb_list", reb_list);
+		model.addAttribute("ast_list", ast_list);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("rank");

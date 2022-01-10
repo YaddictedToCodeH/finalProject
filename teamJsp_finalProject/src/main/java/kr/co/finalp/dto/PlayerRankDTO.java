@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PlayerRankDTO {
 	
+	private int rn;
 	private int player_code;
 	private String player_name;
 	private String player_img;
