@@ -12,6 +12,11 @@
   		
   		<typeAlias type="kr.co.finalp.dto.StartEnd" alias="se"/>
 	 	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
+	 	
+	 	
+	 	<typeAlias type="kr.co.finalp.dto.PlayerDTO" alias="pdto"/>
+	 	<typeAlias type="kr.co.finalp.dto.PlayerRecordDTO" alias="prdto"/>
+	 	
   	</typeAliases>
   </configuration>
 

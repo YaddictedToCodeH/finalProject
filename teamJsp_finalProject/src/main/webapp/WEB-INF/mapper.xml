@@ -139,6 +139,54 @@
  		SET hits = hits+1
  		WHERE noticeno = #{noticeno}
  	</update>
+ 	
+ 	
+ 	
+ 	<!-- 전체 선수목록 -->
+ 	<select id="player_selectAll" resultType="pdto">
+ 		SELECT * FROM player
+ 	</select>
+ 	
+ 	<!-- 포지션별 선수목록 -->
+ 	<select id="player_selectPos" parameterType="String" resultType="pdto">
+ 		SELECT * FROM player WHERE player_pos = #{player_pos}
+ 	</select>
  		
+ 	<!-- 개인선수디테일 -->
+ 	<select id="player_selectOne" parameterType="int" resultType="pdto">
+ 		SELECT * FROM player WHERE player_backno = #{player_backno}
+ 	</select>
+ 	
+ 	<!-- 개인선수통산기록 -->
+ 	<select id="player_selectSumRecord" parameterType="int" resultType="prdto">
+ 		SELECT SUM(player_pts) player_pts, SUM(player_min) player_min, SUM(player_fg) player_fg, 
+ 			   SUM(player_three) player_three, SUM(player_ft) player_ft, SUM(player_reb) player_reb,
+ 			   SUM(player_ast) player_ast, SUM(player_stl) player_stl, SUM(player_bs) player_bs, SUM(player_to) player_to
+		FROM playerrecord
+		WHERE player_code = (SELECT player_code FROM player
+							 WHERE player_backno = #{player_backno})
+ 	</select>
+ 	
+ 	<!-- 개인선수평균기록 -->
+ 	<select id="player_selectAvgRecord" parameterType="int" resultType="prdto">
+ 		SELECT ROUND(AVG(player_pts),3) player_pts, ROUND(AVG(player_min),3) player_min, 
+ 			   ROUND(AVG(player_fg),3) player_fg, ROUND(AVG(player_three),3) player_three, 
+ 			   ROUND(AVG(player_ft),3) player_ft, ROUND(AVG(player_reb),3) player_reb, 
+ 			   ROUND(AVG(player_ast),3) player_ast, ROUND(AVG(player_stl),3) player_stl, 
+ 			   ROUND(AVG(player_bs),3) player_bs, ROUND(AVG(player_to),3) player_to
+		FROM playerrecord 
+		WHERE player_code = (SELECT player_code FROM player 
+							 WHERE player_backno = #{player_backno})
+ 	</select>
+ 	
+ 	<!-- 개인선수최고기록 -->
+ 	<select id="player_selectTopRecord" parameterType="int" resultType="prdto">
+ 		SELECT MAX(player_pts) player_pts, MAX(player_min) player_min, MAX(player_fg) player_fg, 
+ 			   MAX(player_three) player_three, MAX(player_ft) player_ft, MAX(player_reb) player_reb,
+ 			   MAX(player_ast) player_ast, MAX(player_stl) player_stl, MAX(player_bs) player_bs, MAX(player_to) player_to
+		FROM playerrecord
+		WHERE player_code = (SELECT player_code FROM player
+							 WHERE player_backno = #{player_backno})
+ 	</select>
  	
 </mapper>
