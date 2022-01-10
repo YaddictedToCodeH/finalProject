@@ -39,8 +39,8 @@
 				<li><a href="">응원단</a></li>
 			</ul>
 			<ul>
-				<li><a href="">일정 및 결과</a></li>
-				<li><a href="">팀/선수 순위</a></li>
+				<li><a href="schedule">일정 및 결과</a></li>
+				<li><a href="rank">팀/선수 순위</a></li>
 				<li><a href="">기록실</a></li>
 			</ul>
 			<ul>
