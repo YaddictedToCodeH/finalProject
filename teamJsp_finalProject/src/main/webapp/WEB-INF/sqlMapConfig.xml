@@ -8,10 +8,18 @@
   	<typeAliases>
   		<typeAlias type="kr.co.finalp.dto.GalleryDTO" alias="gdto"/>
   		<typeAlias type="kr.co.finalp.dto.GalleryStartEnd" alias="gallStartEnd"/>
+  		<typeAlias type="kr.co.finalp.dto.ScheduleDTO" alias="schedto"/>
+  		<typeAlias type="kr.co.finalp.dto.RankDTO" alias="rankdto"/>
+  		<typeAlias type="kr.co.finalp.dto.PlayerRankDTO" alias="playerRankdto"/>
   		
   		
   		<typeAlias type="kr.co.finalp.dto.StartEnd" alias="se"/>
 	 	<typeAlias type="kr.co.finalp.dto.NoticeDTO" alias="ndto"/>
+	 	
+	 	
+	 	<typeAlias type="kr.co.finalp.dto.PlayerDTO" alias="pdto"/>
+	 	<typeAlias type="kr.co.finalp.dto.PlayerRecordDTO" alias="prdto"/>
+	 	
   	</typeAliases>
   </configuration>
 

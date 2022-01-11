@@ -4,7 +4,6 @@ import java.util.List;
 
 import kr.co.finalp.dto.GalleryDTO;
 import kr.co.finalp.dto.GalleryStartEnd;
-import kr.co.finalp.dto.StartEnd;
 
 public interface GalleryDao {
 
