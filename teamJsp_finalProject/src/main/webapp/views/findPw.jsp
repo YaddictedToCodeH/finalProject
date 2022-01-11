@@ -14,15 +14,15 @@
                 </div>
             </div>
             <div class="findTextWrap">
-                <label class="findText">아이디 찾기</label>
+                <label class="findText">비밀번호 찾기</label>
             </div>
             <div class="findContentsWrap">
                 <div class="findContents">
                     <form action="" method="post">
                         <table class="findInput">
                             <tr>
-                                <td>이름</td>
-                                <td><input type="text" class="firstInput" name="name" id="name"></td>
+                                <td>아이디</td>
+                                <td><input type="text" class="firstInput" name="id" id="id"></td>
                             </tr>
                             <tr>
                                 <td>이메일</td>
@@ -55,7 +55,7 @@
                             </tr>
                             <tr>
                                 <td colspan="6">
-                                    <button type="button" class="idFindBtn">아이디 찾기</button>
+                                    <button type="button" class="idFindBtn">비밀번호 찾기</button>
                                 </td>
                             </tr>
                         </table>
@@ -65,4 +65,4 @@
         </div>
     </div>
     
- <jsp:include page="./footer.jsp"></jsp:include>
+<jsp:include page="./footer.jsp"></jsp:include>
