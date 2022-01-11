@@ -136,17 +136,28 @@
  	<!-- 공지사항 게시판 조회수  -->
  	<update id="notice_raiseHits" parameterType="int">
  		UPDATE notice
- 		SET hits = hits+1
+ 		SET notice_hit = notice_hit+1
  		WHERE noticeno = #{noticeno}
  	</update>
  	
  	<!-- 팬게시판 전체 -->
- 	<select id="fan_board_selectAll" parameterType="se" resultType="fbdto">
+ 	<select id="fan_board_selectAll" parameterType="fbStartEnd" resultType="fbdto">
  		SELECT fanno, fan_title, id, fan_date, fan_hit, fan_hit 
  		FROM ( SELECT ROWNUM rn, fanno, fan_title, id, fan_date, fan_hit, fan_hit ft
  			FROM( SELECT fanno, fan_title, id, to_char(fan_date, 'YYYY/MM/DD') fan_date, fan_hit , fan_hit ft
- 					FROM fan_board
- 					ORDER BY fanno desc )
+ 					FROM fan_board	
+ 					<choose>
+		            <when test="search_option == 'all' "> <!-- 검색 옵션이 전체일 경우 -->
+		                WHERE 
+		                   id LIKE '%'||#{keyword}||'%'
+		                   OR fan_contents LIKE '%' || #{keyword}||'%'
+		                   OR fan_title LIKE '%'||#{keyword}||'%'   
+		            </when>
+		            <otherwise> <!-- 작성자/제목/내용의 검색조건으로 게시물을 검색하는 경우 -->
+		                WHERE ${search_option} LIKE '%'||#{keyword}||'%'
+		            </otherwise>
+		        </choose>		
+ 				ORDER BY fanno desc )
  			WHERE ROWNUM &lt;=#{endNo} )
  		WHERE RN &gt;=#{startNo}
  	</select>
@@ -179,6 +190,14 @@
   		SELECT COUNT(*) total
   		FROM fan_board
   	</select>
+  	
+  	<update id="fan_board_raiseHits" parameterType="int">
+ 		UPDATE fan_board
+ 		SET fan_hit  = fan_hit +1
+ 		WHERE fanno = #{fanno}
+ 	</update>
+  	
+
  	
  		
  	

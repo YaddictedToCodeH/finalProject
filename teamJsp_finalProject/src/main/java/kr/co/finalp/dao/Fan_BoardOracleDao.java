@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.finalp.dto.Fan_BoardDTO;
-import kr.co.finalp.dto.StartEnd;
+import kr.co.finalp.dto.Fan_BoardStartEnd;
 
 @Repository
 public class Fan_BoardOracleDao implements Fan_BoardDao {
@@ -20,9 +20,9 @@ public class Fan_BoardOracleDao implements Fan_BoardDao {
 	}
 
 	@Override
-	public List<Fan_BoardDTO> selectAll(int startNo, int endNo) {
-		StartEnd se = new StartEnd(startNo, endNo);	
-		return ss.selectList("kr.co.finalp.fan_board_selectAll", se);
+	public List<Fan_BoardDTO> selectAll(int startNo, int endNo, String search_option, String keyword) {
+		Fan_BoardStartEnd fbStartEnd = new Fan_BoardStartEnd(startNo, endNo, search_option, keyword);	
+		return ss.selectList("kr.co.finalp.fan_board_selectAll", fbStartEnd);
 	}
 
 	@Override
@@ -55,8 +55,7 @@ public class Fan_BoardOracleDao implements Fan_BoardDao {
 
 	@Override
 	public void raiseHits(int fanno) {
-		// TODO Auto-generated method stub
-		
+		ss.update("kr.co.finalp.fan_board_raiseHits");
 	}
 
 }

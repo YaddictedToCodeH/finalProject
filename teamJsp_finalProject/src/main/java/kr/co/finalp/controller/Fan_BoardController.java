@@ -30,21 +30,26 @@ public class Fan_BoardController {
 	
 	@RequestMapping("/fan_board")
 	public ModelAndView fan_board(Model model,
-			@RequestParam(name="currentPage", defaultValue ="1" ) int currentPage
+			@RequestParam(name="currentPage", defaultValue ="1" ) int currentPage,
+			@RequestParam(defaultValue="fan_title") String search_option,  // 기본 검색 옵션값을 제목으로 설정
+			@RequestParam(defaultValue="") String keyword // 키워드의 기본값은 ""
 	) {
 		
 		int totalNumber = dao.getTotal();
 		
 		int countPerPage = 10;
 		
-		Map<String, Object> map = Fan_BoardPageUtil.getPageData(totalNumber, countPerPage, currentPage);
+		Map<String, Object> map = Fan_BoardPageUtil.getPageData(totalNumber, countPerPage, currentPage, search_option, keyword);
 		
 		model.addAttribute("map", map);
 		
 		int startNo = (int) map.get("startNo");
 		int endNo = (int) map.get("endNo");
 		
-		return new ModelAndView("fan_board", "fan_board", dao.selectAll(startNo, endNo));
+		map.put("search_option", search_option); // 검색옵션
+		map.put("keyword", keyword); // 검색키워드
+		
+		return new ModelAndView("fan_board", "fan_board", dao.selectAll(startNo, endNo, search_option, keyword));
 	}
 	
 	// 팬게시판에서 클릭시 게시물 상세사항 

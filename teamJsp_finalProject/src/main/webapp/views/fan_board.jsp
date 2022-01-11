@@ -18,7 +18,7 @@
         <div class="title"><h1>팬게시판</h1></div>
 
             <div class="sortdiv">
-                <form action="">
+                <form action=" ">
                     <select name="sortbox" id="sort">
                         <option value="latest">최신순</option>
                         <option value="old">오래된순</option>
@@ -51,18 +51,33 @@
 	                </c:forEach>
             	</table>
 				
-				<form action="">
+				<form action="fan_board" method="post">
 	                <div class="search">
 	                    <div class="searchsort">
-		                        <select name="searchsort" id="searchsort">
-		                            <option value="title">제목</option>
-		                            <option value="writer">작성자</option>
-		                            <option value="contents">내용</option>
+		                        <select name="search_option" id="search_option">
+		                            
+		                            <option value="fan_title"
+		                            <c:if test="${map.search_option == 'fan_title'}">selected</c:if>
+		                            >제목</option>
+		                            
+		                           
+		                            <option value="id" 
+		                            <c:if test="${map.search_option == 'id' }">selected</c:if>
+		                            >작성자</option>
+
+		                         	<option value="fan_contents"
+		                         	<c:if test="${map.search_option == 'fan_contents'}">selected</c:if>
+		                         	>내용</option>
+		                         	
+		                         	<option value="all"
+		                         	<c:if test="${map.search_option == 'all'}">selected</c:if>
+		                         	>작성자+내용+제목</option>
+		                         	
 		                        </select>
 	                    </div>
 	                    
-	                    <div class="searchinput"><input type="text"></div>
-	                    <button class="searchbutton">검색</button>
+	                    <div class="searchinput"><input name="keyword" type="text"></div>
+	                    <button type="submit" class="searchbutton">검색</button>
 	
 	                	<div class="write"><a href="fan_boardWrite">글쓰기</a></div>
 	            	</div>

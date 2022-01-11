@@ -6,7 +6,7 @@ import kr.co.finalp.dto.Fan_BoardDTO;
 
 
 public interface Fan_BoardDao {
-	public List<Fan_BoardDTO> selectAll(int startNo, int endNo);
+	public List<Fan_BoardDTO> selectAll(int startNo, int endNo, String search_option, String keyword);
 	public void InsertOne(Fan_BoardDTO dto);
 	public Fan_BoardDTO selectOne(int fanno);
 	public void updateOne(Fan_BoardDTO dto);
