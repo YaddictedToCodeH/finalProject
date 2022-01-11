@@ -5,7 +5,7 @@ import java.util.Map;
 
 
 public class Fan_BoardPageUtil {
-	public static Map<String, Object> getPageData(int totalNumber, int countPerPage, int currentPage, String search_option, String keyword){
+	public static Map<String, Object> getPageData(int totalNumber, int countPerPage, int currentPage, String search_option, String keyword, String sort_option){
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		// 총 페이지수

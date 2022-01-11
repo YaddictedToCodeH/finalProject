@@ -14,5 +14,5 @@ public class Fan_BoardStartEnd {
 	private int endNo;
 	private String search_option;
 	private String keyword;
-
+	private String sort_option;
 }

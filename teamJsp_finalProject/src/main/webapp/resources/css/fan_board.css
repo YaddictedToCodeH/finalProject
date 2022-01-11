@@ -38,7 +38,7 @@
     }
     
 
-    .sortdiv > form > #sort{
+    .sortdiv > form > #sort_option{
         padding: 5px 10px;
         width: 100px;
         border: 1px solid gray;

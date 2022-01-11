@@ -20,8 +20,8 @@ public class Fan_BoardOracleDao implements Fan_BoardDao {
 	}
 
 	@Override
-	public List<Fan_BoardDTO> selectAll(int startNo, int endNo, String search_option, String keyword) {
-		Fan_BoardStartEnd fbStartEnd = new Fan_BoardStartEnd(startNo, endNo, search_option, keyword);	
+	public List<Fan_BoardDTO> selectAll(int startNo, int endNo, String search_option, String keyword, String sort_option) {
+		Fan_BoardStartEnd fbStartEnd = new Fan_BoardStartEnd(startNo, endNo, search_option, keyword, sort_option);	
 		return ss.selectList("kr.co.finalp.fan_board_selectAll", fbStartEnd);
 	}
 

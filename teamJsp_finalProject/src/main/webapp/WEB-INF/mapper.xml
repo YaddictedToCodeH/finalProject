@@ -142,9 +142,9 @@
  	
  	<!-- 팬게시판 전체 -->
  	<select id="fan_board_selectAll" parameterType="fbStartEnd" resultType="fbdto">
- 		SELECT fanno, fan_title, id, fan_date, fan_hit, fan_hit 
- 		FROM ( SELECT ROWNUM rn, fanno, fan_title, id, fan_date, fan_hit, fan_hit ft
- 			FROM( SELECT fanno, fan_title, id, to_char(fan_date, 'YYYY/MM/DD') fan_date, fan_hit , fan_hit ft
+ 		SELECT fanno, fan_title, id, fan_date, fan_hit
+ 		FROM ( SELECT ROWNUM rn, fanno, fan_title, id, fan_date, fan_hit
+ 			FROM( SELECT fanno, fan_title, id, to_char(fan_date, 'YYYY/MM/DD') fan_date, fan_hit
  					FROM fan_board	
  					<choose>
 		            <when test="search_option == 'all' "> <!-- 검색 옵션이 전체일 경우 -->
@@ -156,11 +156,22 @@
 		            <otherwise> <!-- 작성자/제목/내용의 검색조건으로 게시물을 검색하는 경우 -->
 		                WHERE ${search_option} LIKE '%'||#{keyword}||'%'
 		            </otherwise>
+		        </choose>
+		        <choose>
+		        	<when test="sort_option == 'latest' ">
+		        		ORDER BY fanno desc )
+		        	</when>
+		        	<when test="sort_option == 'old' " >
+		        		ORDER BY fanno asc ) 
+		        	</when>
+		        	<otherwise>
+		        		ORDER BY fanno desc ) 
+		        	</otherwise>
 		        </choose>		
- 				ORDER BY fanno desc )
- 			WHERE ROWNUM &lt;=#{endNo} )
- 		WHERE RN &gt;=#{startNo}
+	 			WHERE ROWNUM &lt;=#{endNo} )
+	 		WHERE RN &gt;=#{startNo}
  	</select>
+ 	
  	
  	<!-- 팬게시판 게시물 하나 선택  -->
   	<select id="fan_board_selectOne" parameterType="int" resultType="fbdto">
@@ -194,11 +205,22 @@
   	<update id="fan_board_raiseHits" parameterType="int">
  		UPDATE fan_board
  		SET fan_hit  = fan_hit +1
- 		WHERE fanno = #{fanno}
+ 		WHERE fanno = #{fanno, jdbcType=INTEGER}
  	</update>
   	
+	<!--  댓글 -->
+	<!-- <select id="comments_selectOne" parameterType="int" resultType="cdto">
+		SELECT c.id , to_char(c.comment_date, 'YYYY/MM/DD') c.comment_date, c.comment_contents
+		FROM comments c , fan_board f
+		WHERE c.fanno = f.fanno
+	</select> -->
+	
+	<select id="comments_selectAll" parameterType="int" resultType="cdto">
+		SELECT c.id , c.comment_date, c.comment_contents , c.fanno
+		FROM comments c , fan_board f
+		WHERE c.fanno = f.fanno
+		AND c.fanno = #{c.fanno}
+	</select>
+ 
 
- 	
- 		
- 	
-</mapper>
+ </mapper>

@@ -1,5 +1,6 @@
 package kr.co.finalp.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.finalp.dao.CommentsDao;
 import kr.co.finalp.dao.Fan_BoardDao;
+import kr.co.finalp.dto.CommentsDTO;
 import kr.co.finalp.dto.Fan_BoardDTO;
 import kr.co.finalp.dto.Fan_BoardPageUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -23,23 +26,35 @@ public class Fan_BoardController {
 	
 	@Autowired
 	Fan_BoardDao dao;
+	
+	@Autowired
+	CommentsDao dao2;
 
 	public void setDao(Fan_BoardDao dao) {
 		this.dao = dao;
 	}
 	
+	
+	
+	public void setDao2(CommentsDao dao2) {
+		this.dao2 = dao2;
+	}
+
+
+
 	@RequestMapping("/fan_board")
 	public ModelAndView fan_board(Model model,
 			@RequestParam(name="currentPage", defaultValue ="1" ) int currentPage,
 			@RequestParam(defaultValue="fan_title") String search_option,  // 기본 검색 옵션값을 제목으로 설정
-			@RequestParam(defaultValue="") String keyword // 키워드의 기본값은 ""
+			@RequestParam(defaultValue="") String keyword, // 키워드의 기본값은 ""
+			@RequestParam(defaultValue="latest") String sort_option
 	) {
 		
 		int totalNumber = dao.getTotal();
 		
 		int countPerPage = 10;
 		
-		Map<String, Object> map = Fan_BoardPageUtil.getPageData(totalNumber, countPerPage, currentPage, search_option, keyword);
+		Map<String, Object> map = Fan_BoardPageUtil.getPageData(totalNumber, countPerPage, currentPage, search_option, keyword, sort_option);
 		
 		model.addAttribute("map", map);
 		
@@ -48,20 +63,28 @@ public class Fan_BoardController {
 		
 		map.put("search_option", search_option); // 검색옵션
 		map.put("keyword", keyword); // 검색키워드
+		map.put("sort_option", sort_option);
 		
-		return new ModelAndView("fan_board", "fan_board", dao.selectAll(startNo, endNo, search_option, keyword));
+		return new ModelAndView("fan_board", "fan_board", dao.selectAll(startNo, endNo, search_option, keyword, sort_option));
 	}
 	
 	// 팬게시판에서 클릭시 게시물 상세사항 
 	@GetMapping("/fan_boardDetail")
-	public ModelAndView fan_bodardDetailForm(@RequestParam("fanno")int fanno) {
-		
+	public ModelAndView fan_bodardDetailForm(@RequestParam("fanno")int fanno, Model model) {
 		Fan_BoardDTO dto = dao.selectOne(fanno);
+		List<CommentsDTO> list = dao2.selectAll(fanno);
+
 		
+		model.addAttribute("dto", dto);
+		model.addAttribute("list", list);
+
 		// 조회수 증가
 		dao.raiseHits(fanno);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("fan_boardDetail");
 	
-		return new ModelAndView("fan_boardDetail", "dto", dto);
+		return mav;
 	}
 	
 	// 작성 클릭시 해당 폼으로 

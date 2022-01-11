@@ -16,6 +16,7 @@
 	 	<typeAlias type="kr.co.finalp.dto.Fan_BoardDTO" alias="fbdto"/>
 	 	<typeAlias type="kr.co.finalp.dto.Fan_BoardStartEnd" alias="fbStartEnd"/>
 	 	
+	 	<typeAlias type="kr.co.finalp.dto.CommentsDTO" alias="cdto"/>
 	 	
   	</typeAliases>
   </configuration>

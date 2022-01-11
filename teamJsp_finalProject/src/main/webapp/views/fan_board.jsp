@@ -18,11 +18,17 @@
         <div class="title"><h1>팬게시판</h1></div>
 
             <div class="sortdiv">
-                <form action=" ">
-                    <select name="sortbox" id="sort">
-                        <option value="latest">최신순</option>
-                        <option value="old">오래된순</option>
-                        <option value="latest">좋아요순</option>
+                <form action="fan_board" method="get">
+                    <select name="sort_option" id="sort_option">
+                        <option value="latest"
+                        <c:if test="${map.sort_option == 'latest'}">selected</c:if>            
+                        >최신순</option>
+                        <option value="old"
+                        <c:if test="${map.sort_option == 'old'}">selected</c:if>            
+                        >오래된순</option>
+                        <option value="like"
+                        <c:if test="${map.sort_option == 'like'}">selected</c:if>            
+                        >좋아요순</option>
                     </select>
                     <input type="hidden" name="">
                     <input type="submit" value="조회">

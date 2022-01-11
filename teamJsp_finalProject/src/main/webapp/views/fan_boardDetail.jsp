@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,17 +41,19 @@
 	            </div>
 	            
 	        </div>
+	        
+
 	
 	        <div class="comment">
+	        <c:forEach var="list" items="${list }">
 	            <div class="commentbox">
-	                <div class="cbtitle">작성자 <span>2022-01-01</span></div>
-	                <div class="commenttext">댓글내용</div>
+	                <div class="cbtitle">${list.id } <span>${list.comment_date }</span></div>
+	                <div class="commenttext">${list.comment_contents }</div>
 	            </div>
 	            <br>
-	            <div class="commentbox">
-	                <div class="cbtitle">작성자 <span>2022-01-01</span></div>
-	                <div class="commenttext">댓글내용</div>
-	            </div>
+	        </c:forEach>
+	   
+	           	
 	            <br>
 	            <div class="writecomment">댓글작성</div>
 	            <div class="writebox"><input type="text">

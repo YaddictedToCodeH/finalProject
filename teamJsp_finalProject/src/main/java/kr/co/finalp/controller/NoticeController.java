@@ -28,6 +28,7 @@ public class NoticeController {
 	NoticeDao dao;
 	
 	
+	
 	public void setDao(NoticeDao dao) {
 		this.dao = dao;
 	}
