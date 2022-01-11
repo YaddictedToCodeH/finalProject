@@ -25,11 +25,11 @@
 					<p class="loginMsg"><c:out value="${error}"></c:out></p>					
 					</c:if>
 					<div class="id">
-						<input type="text" name="id" id="id" placeholder="아이디">
+						<input type="text" name="username" id="username" placeholder="아이디">
 						<p class="loginIdMsg">ID를 입력해주세요.</p>
 					</div>
 					<div class="pw">
-						<input type="password" name="pw" id="pw" placeholder="비밀번호">
+						<input type="password" name="password" id="password" placeholder="비밀번호">
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" />
 						<p class="loginPwMsg">PW를 입력해주세요.</p>
@@ -40,8 +40,9 @@
 				</form>
 			</div>
 			<p class="loginMenu">
-				<a href="">회원가입</a>&nbsp; <a href="">ID 찾기</a>&nbsp; <a href="">비밀번호
-					찾기</a>&nbsp;
+				<a href="">회원가입</a>
+				&nbsp; <a href="./findId">ID 찾기</a>
+				&nbsp; <a href="./findPw">비밀번호찾기</a>
 			</p>
 		</div>
 	</div>

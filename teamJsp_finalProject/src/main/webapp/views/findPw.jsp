@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../resources/css/find.css">
+<link rel="stylesheet" href="./resources/css/find.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../resources/js/find.js"></script>
+<script src="./resources/js/find.js"></script>
 
 <jsp:include page="./header.jsp"></jsp:include>
 
@@ -10,7 +10,7 @@
         <div class="FindWrap">
             <div class="findHeader">
                 <div class="findHeaderLogo">
-                    <img src="../resources/images/blacklogo_lg.png" alt="로고">
+                    <img src="./resources/images/blacklogo_lg.png" alt="로고">
                 </div>
             </div>
             <div class="findTextWrap">
@@ -55,7 +55,7 @@
                             </tr>
                             <tr>
                                 <td colspan="6">
-                                    <button type="button" class="idFindBtn">비밀번호 찾기</button>
+                                    <button type="button" class="pwFindBtn">비밀번호 찾기</button>
                                 </td>
                             </tr>
                         </table>

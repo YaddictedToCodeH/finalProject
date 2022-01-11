@@ -254,4 +254,26 @@
 							 WHERE player_backno = #{player_backno})
  	</select>
  	
+ 	
+ 	<!-- 이름과 이메일을 대조해서 회원조회 -->
+ 	<select id="findId" parameterType="mdto" resultType="String">
+ 		SELECT id
+ 		FROM member
+ 		WHERE mem_name = #{mem_name} AND mail = #{mail}
+ 	</select>
+ 	
+ 	<!-- 아이디와 이메일을 대조해서 회원조회 -->
+ 	<select id="findPw" parameterType="mdto" resultType="String">
+ 		SELECT pwd
+ 		FROM member
+ 		WHERE id = #{id} AND mail = #{mail}
+ 	</select>
+ 	
+ 	<!-- 임시 비밀번호로 재설정 -->
+ 	<update id="changePw" parameterType="mdto">
+ 		UPDATE member
+ 		SET pwd = #{pwd}
+ 		WHERE mail = #{mail}
+ 	</update>
+ 	
 </mapper>
