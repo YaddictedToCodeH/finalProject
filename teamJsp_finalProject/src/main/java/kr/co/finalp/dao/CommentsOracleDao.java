@@ -15,7 +15,10 @@ public class CommentsOracleDao implements CommentsDao{
 	private SqlSession ss;
 	
 	
-	
+	public void setSs(SqlSession ss) {
+		this.ss = ss;
+	}
+
 	@Override
 	public List<CommentsDTO> selectAll(int fanno) {
 		return ss.selectList("kr.co.finalp.comments_selectAll", fanno);
@@ -23,8 +26,7 @@ public class CommentsOracleDao implements CommentsDao{
 
 	@Override
 	public void InsertOne(CommentsDTO dto) {
-		// TODO Auto-generated method stub
-		
+		ss.insert("kr.co.finalp.comments_addOne", dto);
 	}
 
 
@@ -35,8 +37,8 @@ public class CommentsOracleDao implements CommentsDao{
 	}
 
 	@Override
-	public void deleteOne(int fanno) {
-		// TODO Auto-generated method stub
+	public void deleteOne(int commentno) {
+		ss.delete("kr.co.finalp.comments_deleteOne", commentno);
 		
 	}
 

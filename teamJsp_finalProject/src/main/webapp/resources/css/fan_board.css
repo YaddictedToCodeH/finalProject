@@ -10,7 +10,7 @@
     .container{
         margin: 0 auto;
         margin-top: 100px;
-        margin-bottom : 200px;
+        margin-bottom : 150px;
         width: 1200px;
         height: 700px;
         text-align:center;
@@ -34,7 +34,7 @@
     .sortdiv {
         float: right;
         width: 33%;
-        margin-top: 10%;
+        margin-top: 50px;
     }
     
 
@@ -51,11 +51,13 @@
         color:white;
         background-color: black;
         border-radius: 5px;
+        cursor: pointer;
     }
+    
 
     .board{
         margin: 0 auto;
-    	margin-top:120px;
+    	margin-top:50px;
         border-collapse: collapse;
         width: 80%;
         text-align: center;
@@ -72,6 +74,7 @@
     .fth {
         background-color: red;
         color: white;
+        padding:10px;
     }
 
     .board > tbody > tr:nth-child(1) > th:nth-child(1)  {

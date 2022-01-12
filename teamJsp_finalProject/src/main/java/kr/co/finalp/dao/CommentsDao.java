@@ -8,5 +8,5 @@ public interface CommentsDao {
 	public List<CommentsDTO>selectAll(int fanno);
 	public void InsertOne(CommentsDTO dto);
 	public void updateOne(CommentsDTO dto);
-	public void deleteOne(int fanno);
+	public void deleteOne(int commentno);
 }

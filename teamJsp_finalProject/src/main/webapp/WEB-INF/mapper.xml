@@ -209,18 +209,22 @@
  	</update>
   	
 	<!--  댓글 -->
-	<!-- <select id="comments_selectOne" parameterType="int" resultType="cdto">
-		SELECT c.id , to_char(c.comment_date, 'YYYY/MM/DD') c.comment_date, c.comment_contents
-		FROM comments c , fan_board f
-		WHERE c.fanno = f.fanno
-	</select> -->
-	
+
 	<select id="comments_selectAll" parameterType="int" resultType="cdto">
-		SELECT c.id , c.comment_date, c.comment_contents , c.fanno
+		SELECT c.commentno, c.id , to_char(c.comment_date , 'YYYY/MM/DD') comment_date , c.comment_contents , c.fanno
 		FROM comments c , fan_board f
 		WHERE c.fanno = f.fanno
 		AND c.fanno = #{c.fanno}
 	</select>
- 
+	
+	<update id="comments_addOne" parameterType="cdto">
+		INSERT INTO comments
+ 		VALUES (comments_commentno_seq.nextval, #{id, jdbcType=VARCHAR}, #{fanno}, sysdate , #{comment_contents} )
+	</update>
+ 	
+ 	<delete id="comments_deleteOne" parameterType="int">
+ 		DELETE FROM comments
+ 		WHERE commentno = #{commentno}
+ 	</delete>
 
  </mapper>

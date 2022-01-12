@@ -87,6 +87,7 @@ public class Fan_BoardController {
 		return mav;
 	}
 	
+
 	// 작성 클릭시 해당 폼으로 
 	@GetMapping("/fan_boardWrite")
 	public String fan_boardWrite() {
@@ -120,6 +121,4 @@ public class Fan_BoardController {
 		dao.deleteOne(fanno);
 		return "redirect:/fan_board";
 	}
-	
-	
 }
