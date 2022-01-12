@@ -19,7 +19,7 @@ import kr.co.finalp.dto.NoticeDTO;
 import kr.co.finalp.dto.NoticePageUtil;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Controller
 //@RequestMapping("/notice")
 public class NoticeController {
