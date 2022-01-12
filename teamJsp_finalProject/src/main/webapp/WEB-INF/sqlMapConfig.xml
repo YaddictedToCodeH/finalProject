@@ -11,6 +11,8 @@
   		<typeAlias type="kr.co.finalp.dto.ScheduleDTO" alias="schedto"/>
   		<typeAlias type="kr.co.finalp.dto.RankDTO" alias="rankdto"/>
   		<typeAlias type="kr.co.finalp.dto.PlayerRankDTO" alias="playerRankdto"/>
+  		<typeAlias type="kr.co.finalp.dto.RankPlayerAllDTO" alias="rankAlldto"/>
+  		<typeAlias type="kr.co.finalp.dto.RecommendDTO" alias="recomdto"/>
   		
   		
   		<typeAlias type="kr.co.finalp.dto.StartEnd" alias="se"/>

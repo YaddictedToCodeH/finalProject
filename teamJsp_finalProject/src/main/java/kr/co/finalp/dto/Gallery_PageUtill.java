@@ -36,5 +36,6 @@ public class Gallery_PageUtill {
 		map.put("next", next);
 		
 		return map;
-	}
+	}	
+	
 }
