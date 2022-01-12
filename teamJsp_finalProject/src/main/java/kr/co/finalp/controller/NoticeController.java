@@ -2,8 +2,6 @@ package kr.co.finalp.controller;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.finalp.dao.NoticeDao;
 import kr.co.finalp.dto.NoticeDTO;
 import kr.co.finalp.dto.NoticePageUtil;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 //@RequestMapping("/notice")
 public class NoticeController {

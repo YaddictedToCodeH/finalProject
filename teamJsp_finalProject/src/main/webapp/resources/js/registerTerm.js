@@ -29,6 +29,7 @@ $(function(){
         }else{
             $("label[for=check1]").css({"color":"black"});
             $("label[for=check2]").css({"color":"black"});
+            document.registerTerm.submit();
         }
     })
 })

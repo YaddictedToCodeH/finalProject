@@ -17,7 +17,6 @@ import kr.co.finalp.dto.Gallery_PageUtill;
 import kr.co.finalp.dto.Video_PageUtill;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 public class GalleryController {
 

@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../resources/css/registerTerm.css">
+<link rel="stylesheet" href="./resources/css/registerTerm.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../resources/js/registerTerm.js"></script>
+<script src="./resources/js/registerTerm.js"></script>
 
 <jsp:include page="./header.jsp"></jsp:include>
 
 <div id="registerTermPage">
         <div class="registerTermWrap">
             <div class="registerTermHeaderLogo">
-                <img src="../resources/images/blacklogo_lg.png" alt="로고">
+                <img src="./resources/images/blacklogo_lg.png" alt="로고">
                 <h2>약관 동의</h2>
             </div>
-            <form action="">
+            <form name="registerTerm" action="./register">
                 <div class="registerTermContents">
                     <div class="allCheck">
                         <input type="checkbox" name="allCheck" id="allCheck"><label for="allCheck"> 모두 동의 </label>

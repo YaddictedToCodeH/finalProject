@@ -29,7 +29,7 @@ public class MailCheckController {
 	    int serti = (int)((Math.random()* (99999 - 10000 + 1)) + 10000);
 	    String from = "teamJspFinal@gmail.com";//보내는 이 메일주소
 	    String to = sm_email;
-	    String title = "회원가입시 필요한 인증번호 입니다.";
+	    String title = "KT 소닉붐에서 전송한 인증번호 입니다.";
 	    String content = "[인증번호] "+ serti +" 입니다. <br/> 인증번호 확인란에 기입해주십시오.";
 	    String num = "";
 	    try {

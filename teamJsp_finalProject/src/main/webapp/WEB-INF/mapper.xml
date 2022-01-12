@@ -276,4 +276,20 @@
  		WHERE mail = #{mail}
  	</update>
  	
+ 	<!-- 아이디 중복확인 -->
+ 	<select id="idDoubleCheck" parameterType="String" resultType="String">
+ 		SELECT id
+ 		FROM member
+ 		WHERE id = #{id}
+ 	</select>
+ 	
+ 	<!-- 메일 중복확인 -->
+ 	<select id="mailDoubleCheck" parameterType="String" resultType="String">
+ 		SELECT mail
+ 		FROM member
+ 		WHERE mail = #{mail}
+ 	</select>
+ 	
+ 	
+ 	
 </mapper>

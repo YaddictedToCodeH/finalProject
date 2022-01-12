@@ -1,23 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../resources/css/register.css">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="./resources/css/register.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="../resources/js/register.js"></script>
+<script src="./resources/js/register.js"></script>
 
 <jsp:include page="./header.jsp"></jsp:include>
 
  <div id="register">
     <div class="registerHeaderLogo">
-        <img src="../resources/images/blacklogo_lg.png" alt="로고">
+        <img src="./resources/images/blacklogo_lg.png" alt="로고">
         <h2>회원 가입</h2>
     </div>
-    <form action="">
+    <form name="registerOk" action="./registerOk" method="post">
         <table>
             <tr>
                 <td>
                     <h6>아이디</h6>
-                    <p>사용할 수 있는 아이디 입니다.</p>
+                    <p class="idP"></p>
                 </td>
             </tr>
             <tr>
@@ -28,7 +29,7 @@
             <tr>
                 <td>
                     <h6>비밀번호</h6>
-                    <p>패스워드를 입력해주세요.</p>
+                    <p class="pw1P"></p>
                 </td>
             </tr>
             <tr>
@@ -38,7 +39,7 @@
             <tr>
                 <td>
                     <h6>비밀번호 확인</h6>
-                    <p>패스워드가 일치하지 않습니다.</p>
+                    <p class="pw2P"></p>
                 </td>
             </tr>
             <tr>
@@ -48,7 +49,7 @@
             <tr>
                 <td>
                     <h6>이름</h6>
-                    <p>이름을 입력해주세요.</p>
+                    <p class="nameP"></p>
                 </td>
             </tr>
             <tr>
@@ -58,21 +59,21 @@
             <tr>
                 <td>
                     <h6>주민등록번호</h6>
-                    <p>생년월일을 입력해주세요.</p>
+                    <p class="birthP"></p>
                 </td>
             </tr>
             <tr>
                 <td>
                     <input type="text" name="birth" id="birth"><span class="sign"> -</span>
                     <input type="text" name="genderNum" id="genderNum"><span class="sign"> X X X X X X</span>
-                    <span class="sign gender">남성</span>
+                    <span class="sign gender"></span>
                 </td>
             </tr>
 
             <tr>
                 <td>
                     <h6>휴대폰 번호</h6>
-                    <p>번호 입력해주세요.</p>
+                    <p class="phoneP"></p>
                 </td>
             </tr>
             <tr>
@@ -86,7 +87,7 @@
             <tr>
                 <td>
                     <h6>E-mail</h6>
-                    <p>이메일을 입력해주세요.</p>
+                    <p class="mailP"></p>
                 </td>
             </tr>
 
@@ -101,7 +102,7 @@
             <tr>
                 <td>
                     <h6>이메일 인증번호</h6>
-                    <p>인증번호를 확인해주세요</p>
+                    <p class="checkMailP"></p>
                 </td>
             </tr>
             
@@ -115,14 +116,15 @@
 
             <tr>
                 <td>
-                    <input type="checkbox" name="mailOk" id="mailOk"><label for="mailOk">&nbsp;광고성 메일 수신 동의</label>
+           			<input type="checkbox" name="mailOk" id="mailOk" <c:if test="${not empty check3 }">checked="checked"</c:if>>
+           			<label for="mailOk">&nbsp;광고성 메일 수신 동의</label>                		
                 </td>
             </tr>
 
             <tr>
                 <td>
                     <h6>주소</h6>
-                    <p>주소를 확인해주세요</p>
+                    <p class="addrP"></p>
                 </td>
             </tr>
 
@@ -146,7 +148,7 @@
             </tr>
 
             <tr class="submitBtn">
-                <td colspan="2"><input type="submit" value="회원가입" id="registerOk"></td>
+                <td colspan="2"><input type="button" value="회원가입" id="registerOk"></td>
             </tr>
 
         </table>

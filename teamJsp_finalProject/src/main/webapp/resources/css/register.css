@@ -57,8 +57,7 @@
     zoom: 2;
 }
 
-#register input[type="button"],
-input[type="submit"]{
+#register input[type="button"]{
     color: white;
     background-color: rgb(23, 25, 30);
     border: 0;
@@ -72,7 +71,7 @@ input[type="submit"]{
     margin-left: 35px;
 }
 
-#register input[type="submit"]{
+#register #registerOk{
     width: 250px;
     height: 40px;
     margin-top: 50px;
@@ -83,13 +82,11 @@ input[type="submit"]{
     text-align: center;
 }
 
-#register input[type="button"]:hover,
-input[type="submit"]:hover{
+#register input[type="button"]:hover{
     background-color :rgb(225,41,47);
 }
 
-#register input[type="button"]:active,
-input[type="submit"]:active{
+#register input[type="button"]:active{
     opacity: 0.8;
 }
 
@@ -142,6 +139,6 @@ input[type="password"]:focus{
     margin-bottom: 5px;
 }
 
-#register #genderNum, #phone1, #phone2, #phone3, #addrNum{
+#register #genderNum, #birth, #phone1, #phone2, #phone3, #addrNum{
     text-align: center;
 }

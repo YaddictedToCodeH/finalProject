@@ -30,6 +30,16 @@ public class MemberOracleDAO implements MemberDAO{
 	public void changePw(MemberDTO dto) {
 		ss.update("kr.co.finalp.changePw", dto);
 	}
+
+	@Override
+	public String idDoubleCheck(String id) {
+		return ss.selectOne("kr.co.finalp.idDoubleCheck", id);
+	}
+
+	@Override
+	public String mailDoubleCheck(String mail) {
+		return ss.selectOne("kr.co.finalp.mailDoubleCheck", mail);
+	}
 	
 	
 	
