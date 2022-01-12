@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.finalp.dto.PlayerRankDTO;
 import kr.co.finalp.dto.RankDTO;
+import kr.co.finalp.dto.RankPlayerAllDTO;
 
 @Repository
 public class RankOracleDao implements RankDao{
@@ -38,6 +39,11 @@ public class RankOracleDao implements RankDao{
 	@Override
 	public List<PlayerRankDTO> astRank() {
 		return ss.selectList("kr.co.finalp.astRank_selectAll");
+	}
+
+	@Override
+	public List<RankPlayerAllDTO> rankAll(String event) {
+		return ss.selectList("kr.co.finalp.player_rankAll", event);
 	}
 
 }

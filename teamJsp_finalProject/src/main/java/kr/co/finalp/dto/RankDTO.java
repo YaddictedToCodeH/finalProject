@@ -17,4 +17,6 @@ public class RankDTO {
 	private int lose;
 	private float winRate;
 	private int gameCount;
+	
+	private String team_logo;
 }
