@@ -243,15 +243,5 @@
 		WHERE player_code = (SELECT player_code FROM player 
 							 WHERE player_backno = #{player_backno})
  	</select>
- 	
- 	<!-- 개인선수최고기록 -->
- 	<select id="player_selectTopRecord" parameterType="int" resultType="prdto">
- 		SELECT MAX(player_pts) player_pts, MAX(player_min) player_min, MAX(player_fg) player_fg, 
- 			   MAX(player_three) player_three, MAX(player_ft) player_ft, MAX(player_reb) player_reb,
- 			   MAX(player_ast) player_ast, MAX(player_stl) player_stl, MAX(player_bs) player_bs, MAX(player_to) player_to
-		FROM playerrecord
-		WHERE player_code = (SELECT player_code FROM player
-							 WHERE player_backno = #{player_backno})
- 	</select>
- 	
+
 </mapper>
